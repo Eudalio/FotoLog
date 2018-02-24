@@ -1,3 +1,20 @@
+<?php
+  $arquivousuarios='usuarios.json'; 
+  if (count($_POST)) {
+    $newUser = $_POST;
+    $allUsers = [];
+    if (file_exists($arquivousuarios)){
+      $allUsers = json_decode(file_get_contents($arquivousuarios), true);
+    }
+    $allUsers[] = $newUser;
+    file_put_contents($arquivousuarios, json_encode($allUsers));
+  }
+    $allUsers = [];
+  if (file_exists($arquivousuarios)){
+    $allUsers = json_decode(file_get_contents($arquivousuarios), true);
+  }
+?>
+
 <!DOCTYPE html>
   <html>
     <head>
@@ -32,6 +49,37 @@
               <div class="card grey lighten-5">
                 <div class="card-content">
                   <span class="card-title">Cadastre um novo usuário</span>
+                  <br>
+<?php
+  if (count($allUsers)) {
+    echo '<ul class="collection">';
+    foreach ($allUsers as $u) {
+      echo '<li class="collection-item avatar">';
+      echo '<i class="material-icons circle">account_circle</i>';
+      echo '<span class="title">' . $u["nome"] . '</span>';
+      echo '<p>' . $u["email"] . '<br></p>';
+      echo '<a href="#" class="secondary-content"><i class="material-icons indigo-text text-accent-2">grade</i></a>';
+      echo '</li>';
+    }
+    echo '</ul>';
+  }
+  else{
+?> 
+
+      <div class="row">
+        <div class="col s10 offset-s1">
+          <div class="card blue darken-2">
+            <span class="white-text">
+              <p>Você não possuí nenhum usuário cadastrado!</p>
+              <p>Cadastre um usuário e comece a usar o Fotolog</p>
+            </span>
+          </div>
+        </div>
+      </div>
+
+<?php
+  }
+?>
                 </div>
                 <div class="card-action">
                   <form method="POST" action="" class="container">
