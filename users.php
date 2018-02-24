@@ -7,7 +7,7 @@
       <link type="text/css" rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css"  media="screen,projection"/>
 			
 			<!-- Import css custom -->
-			<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+			<link rel="stylesheet" type="text/css" href="style.css">
       
 			<!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,9 +24,40 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="main">
-			
-			</div>
+
+      <main>
+        <div class="container">
+          <div class="row" style="margin-top:20px;">
+            <div class="col s8 offset-s2">
+              <div class="card grey lighten-5">
+                <div class="card-content">
+                  <span class="card-title">Cadastre um novo usuário</span>
+                </div>
+                <div class="card-action">
+                  <form method="POST" action="" class="container">
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <input type="text" placeholder="Nome ou Apelido" class="validate" name="nome" id="nome">
+                        <label for="nome">Nome</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <input type="email" placeholder="email@dominio" class="validate" name="email" id="email">
+                        <label for="email">E-mail</label>
+                      </div>
+
+                      <div class="col s12 right-align">
+                        <button type="submit" class="btn waves-effect waves-light">
+                          Cadastrar<i class="material-icons right"> send</i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
 
 			<footer class="page-footer cyan gray-text darken-2-text">
 				<div class="container"></div>
