@@ -1,3 +1,12 @@
+<?php
+  $arquivousuarios='usuarios.json'; 
+
+  $allUsers = [];
+  if (file_exists($arquivousuarios)){
+    $allUsers = json_decode(file_get_contents($arquivousuarios), true);
+  }
+?>
+
 <!DOCTYPE html>
   <html>
     <head>
@@ -27,7 +36,7 @@
 			<main>
         <div class="container">
           <div class="row">
-            <div class="col s10">
+            <div class="col s10 offset-s1">
               <div class="card grey lighten-5">
                 <div class="card-content">
                   <span class="card-title">
@@ -38,8 +47,17 @@
                     <div class="row">
                       <div class="input-field col s6">
                         <select name="usuario_id">
-                          <option value="1">João</option>
-                          <option value="2">Maria</option>
+<?php
+  if (count($allUsers)){
+    echo "<option value='' selected disabled>Quem é você?</option>";
+    foreach($allUsers as $id => $user){
+      echo "<option value='" . $id . "'>" . $user["nome"] . "</option>";
+    }
+  }
+  else{
+    echo "<option value='' selected disabled>Cadastre um usuário.</option>";    
+  }
+?>
                         </select>
                         <label for="usuario">Usuário</label>
                       </div>
