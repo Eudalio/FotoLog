@@ -24,9 +24,60 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="main">
-			
-			</div>
+			<main>
+        <div class="container">
+          <div class="row">
+            <div class="col s10">
+              <div class="card grey lighten-5">
+                <div class="card-content">
+                  <span class="card-title">
+                    Poste uma nova foto!
+                  </span>
+                  <br>
+                  <form method="POST" class="container" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <select name="usuario_id">
+                          <option value="1">João</option>
+                          <option value="2">Maria</option>
+                        </select>
+                        <label for="usuario">Usuário</label>
+                      </div>
+                      <div class="file-field input-field col s6">
+                        <div class="btn cyan accent-4 col s2">
+                          <span><i class="material-icons center">add_a_photo</i></span>
+                          <input type="file">
+                        </div>
+                        <div class="file-path-wrapper col s10">
+                          <input type="text" class="file-path validate">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="texto" name="titulo" placeholder="Coloque o seu título">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea name="Mensagem" id="mensagem" cols="30" rows="10" class="materialize-textarea" placeholder="Insira sua mensagem"></textarea>
+                      </div>                      
+                    </div>
+                    <div class="row">
+                      <div class="right-align col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="enviar">Enviar
+                        <i class="material-icons right">send</i></button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+			</main>
 
 			<footer class="page-footer cyan gray-text darken-2-text">
 				<div class="container"></div>
@@ -40,6 +91,11 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
       <script type="text/javascript" src="./node_modules/materialize-css/dist/js/materialize.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          $('select').material_select();
+        });
+      </script>
     </body>
   </html>
         
